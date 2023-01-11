@@ -8,7 +8,7 @@
       become: yes
 
   tasks:
-    - name: 'Instala pacotes do database de dependencia do sistema operacional'
+    - name: 'Instala dependencias do database'
       apt:
         update_cache: yes
         cache_valid_time: 3600 #1 hora
@@ -72,7 +72,7 @@
 
     - name: 'Baixa o arquivo de instalacao do Wordpress'
       get_url:
-        url: 'https://wordpress.org/latest.tar.gz'
+        url: 'https://wordpress.org/wordpress-5.0.tar.gz'
         dest: '/tmp/wordpress.tar.gz'
         mode: 0440
 

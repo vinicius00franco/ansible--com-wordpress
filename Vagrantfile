@@ -8,6 +8,8 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "wordpress" do |m|
 	   m.vm.network "private_network", ip: "192.168.63.1"
+	   m.vm.network "forwarded_port", guest: 80, host: 8080
+
      m.vm.provision "shell", inline: "cp /vagrant/id_wordpress.pub ."
      m.vm.provision "shell", inline: "cat id_wordpress.pub >> .ssh/authorized_keys"
   end
