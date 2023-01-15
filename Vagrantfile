@@ -10,13 +10,13 @@ Vagrant.configure("2") do |config|
 	   m.vm.network "private_network", ip: "192.168.63.1"
 	   m.vm.network "forwarded_port", guest: 80, host: 8080
 
-     m.vm.provision "shell", inline: "cp /vagrant/id_wordpress.pub ."
+     m.vm.provision "shell", inline: "cp /vagrant/key-files/id_wordpress.pub ."
      m.vm.provision "shell", inline: "cat id_wordpress.pub >> .ssh/authorized_keys"
   end
 
   config.vm.define "mysql" do |m|
     m.vm.network "private_network", ip: "192.168.63.10"
-    m.vm.provision "shell", inline: "cp /vagrant/id_mysql.pub ."
+    m.vm.provision "shell", inline: "cp /vagrant/key-files/id_mysql.pub ."
     m.vm.provision "shell", inline: "cat id_mysql.pub >> .ssh/authorized_keys"
   end
 
