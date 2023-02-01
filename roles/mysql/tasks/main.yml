@@ -26,7 +26,7 @@
     state: present
     host: "{{ item }}"
   with_items:
-    - "{{wp_db_ip}}"
+    - "{{wp_host_ip}}"
 
 - name: 'Configura Mysql para para aceitar conexoes remotas'
   copy:
